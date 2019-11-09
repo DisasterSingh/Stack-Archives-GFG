@@ -1,0 +1,32 @@
+Given a string consisting of lower case alphabets.
+
+Rules of the Game:
+
+A player can choose a pair of similar consecutive characters and erase them.
+There are two players playing the game, the player who makes the last move wins.
+The task is to find the winner if A goes first and both play optimally.
+
+
+
+def test(t):
+   stack = ['#']
+   count = 0
+   for i in range(0,len(t)):
+       if t[i]!=stack[-1]:
+           stack.append(t[i])
+           
+       elif t[i]==stack[-1]:
+           stack.pop()
+       
+           count =count+1
+       
+   
+   if count%2==0:
+       print("B WINS")
+   elif count%2!=0:
+       print("A WINS")
+      
+if __name__=="__main__":
+    t = input()
+   
+    result  = test(t)
