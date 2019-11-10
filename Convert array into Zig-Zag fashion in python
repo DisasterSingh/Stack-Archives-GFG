@@ -1,0 +1,19 @@
+Given an array of DISTINCT elements, rearrange the elements of array in zig-zag fashion in O(n) time. 
+The converted array should be in form a < b > c < d > e < f.
+
+def test(arr):
+    flag= True
+    for i in range(0,len(arr)-1):
+        if flag==True:
+            if arr[i]>arr[i+1]:
+                arr[i],arr[i+1]=arr[i+1],arr[i]
+        
+        elif flag==False:
+            if arr[i]<arr[i+1]:
+                arr[i],arr[i+1]=arr[i+1],arr[i]
+        flag=bool(1-flag)
+    print(arr)
+if __name__=="__main__":
+    arr  = list(map(int,input().split()))
+    
+    result  = test(arr)
