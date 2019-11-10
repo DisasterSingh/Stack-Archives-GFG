@@ -1,0 +1,31 @@
+Given a string, that contains special character together with alphabets (‘a’ to ‘z’ and ‘A’ to ‘Z’), 
+reverse the string in a way that special characters are not affected.
+
+
+def test(t):
+    t = list(t)
+    
+    arr= []
+    for i in range(0,len(t)):
+        if t[i].isalpha()==True:
+            arr.append(t[i])
+    
+    stack =[]
+    for i in range(0,len(arr)):
+        stack.append(arr[-1])
+        arr.pop()
+   
+    arr3= []
+    for  i in range(0,len(t)):
+        if t[i].isalpha()==True:
+            arr3.append(stack[0])
+            stack.pop(0)
+        elif t[i].isalpha()!=True:
+            arr3.append(t[i])
+    print("".join(arr3))
+    
+            
+    
+if __name__=="__main__":
+    t  = input()
+    result  = test(t)
