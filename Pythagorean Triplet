@@ -1,0 +1,30 @@
+Given an array of integers,
+write a function that returns true 
+if there is a triplet (a, b, c) that
+satisfies a2 + b2 = c2.
+
+def test(arr):
+    
+    for i in range(0,len(arr)):
+        arr[i]=arr[i]*arr[i]
+    
+    arr.sort()
+    print(arr)
+    for i in range(0,len(arr)-1):
+        j = 0
+        k = i-1
+        while(j<k):
+            if (arr[j]+arr[k]==arr[i]):
+                print(arr[j],arr[k],arr[i])
+                break
+            else:
+                if(arr[j]+arr[k]<arr[i]):
+                    j = j+1
+                else:
+                    k= k-1
+       
+    
+if __name__=="__main__":
+    arr= list(map(int,input().split()))
+    result = test(arr)
+
